@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD</title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        body {
+            background-color: white;
+        }
+
+        h1 {
+            color: #bac34e;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        table {
+            font-size: 15px;
+            border-collapse: collapse;
+            width: 80%;
+            margin: 50px auto;
+            border: 1px solid green;
+        }
+
+        th, td {
+            text-align: center;
+            padding: 10px;
+            border-bottom: 1px solid green;
+        }
+
+        th {
+            background-color: #bac34e;
+            color: white;
+        }
+
+        button {
+            background-color: #bac34e;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: block;
+            margin: 50px auto;
+            border-radius: 5px;
+            font-size: 20px;
+        }
+
+        a {
+            color: #bac34e;;
+            text-decoration: none;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        a:hover {
+            color: white;
+            background-color: #bac34e;;
+            padding: 8px;
+            border-radius: 5px;
+        } </style>
+</head>
+<body>
+
+<!-- header section starts  -->
+
+<header class="header">
+
+    <a href="" class="logo"> <i class="fas fa-shopping-basket"></i> Amozon </a>
+
+    <nav class="navbar">
+        <a href="/find_goods">商品管理</a>
+        <a href="/find_goods_type">商品分类管理</a>
+        <a href="/find_orders">订单管理</a>
+        <a href="/tocount">查询数量</a>
+    </nav>
+
+    <div class="icons">
+        <div id="menu-btn" class="fas fa-bars"></div>
+        <div id="search-btn" class="fas fa-search"></div>
+        <div id="cart-btn" class="fas fa-shopping-cart"></div>
+        <div id="login-btn"><a href="/"><i class="fas fa-user"></i></a></div>
+    </div>
+
+    <form action="" class="search-form">
+        <input type="search" placeholder="寻找商品" id="search-box">
+        <label for="search-box" class="fas fa-search"></label>
+    </form>
+
+    <!--    <div class="shopping-cart">-->
+    <!--        <div class="box">-->
+    <!--            <i class="fas fa-times"></i>-->
+    <!--            <img src="image/cart-1.jpg" alt="">-->
+    <!--            <div class="content">-->
+    <!--                <h3>organic food</h3>-->
+    <!--                <span class="quantity">${goods.goods_nums}</span>-->
+    <!--                <span class="multiply">x</span>-->
+    <!--                <span class="price">${goods.goods_cash}</span>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--        <h3 class="total"> 总计 : <span>X元</span></h3>-->
+    <!--        <a href="#" class="btn">checkout cart</a>-->
+    <!--    </div>-->
+
+</header>
+
+<!-- header section ends -->
+
+<div class="heading">
+    <h1>商品管理</h1>
+</div>
+
+<section class="CRUD">
+
+    <div class="icons-container">
+
+
+        <div class="row">
+
+            <form action="/find_goods_by_name" method="post">
+                <h3>产品检索</h3>
+                <div class="inputBox">
+                    <input type="text" placeholder="检索商品名" class="box" name="name">
+                    <input type="submit" class="btn fas fa-search" value="检索">
+                </div>
+                <!--
+                 <div>
+                 <input id="file" type="file" name="uploadfile" value="添加新品"
+                 multiple="multiple"class="box"/>
+                 <input type="text" placeholder="商品名称" class="box"/>
+                 <input type="text" placeholder="商品价格" class="box"/>
+                 <textarea placeholder="商品简介" cols="30" rows="10"></textarea>
+                 <input type="submit" value="确认添加" class="btn">
+                 </div>
+                 -->
+            </form>
+            <button onclick='location.href="/to_goods_add"' class="btn">商品添加</button>
+        </div>
+    </div>
+
+
+    <div class="row">
+
+        <form>
+            <div style="display: flex;justify-content: space-around;">
+
+                <table style="width: 100%;height: 100%;text-align: center;">
+                    <tr>
+                        <th>ID</th>
+                        <th>类别</th>
+                        <th>商品名称</th>
+                        <th>单价</th>
+                        <th>商品信息</th>
+                        <th>缩略图</th>
+                        <th>剩余数量</th>
+                        <th>操作</th>
+                    </tr>
+                    <!--
+                <h3>${goods.goods_id}</h3>
+                <h3>${goods.goods_name}</h3>
+                <h3>${goods.goods_cash}</h3>
+                <h3>${goods.goods_nums}</h3>
+                -->
+                    <tr style="margin-bottom: 100px;" th:each="goods : ${GoodsList}">
+                        <td th:text="${goods.goods_id}"></td>
+                        <td th:text="${goods.type_id}"></td>
+                        <td th:text="${goods.name}"></td>
+                        <td th:text="${goods.cash}"></td>
+                        <td th:text="${goods.infos}"></td>
+                        <td><img th:src="@{'/download?filepath='+${goods.pic}}" height="50" width="50"/></td>
+                        <td th:text="${goods.nums}"></td>
+                        <td>
+                            <a th:href="@{'/to_goods_update?goods_id='+${goods.getGoods_id()}+'&pageNum='+${page.getPageNum()}}"
+                               class="btn">修改</a>
+                            <a th:href="@{'/delete_goods?goods_id='+${goods.getGoods_id()}+'&pageNum='+${page.getPageNum()}}"
+                               class="btn">下架</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a th:href="@{'/goods_switch?pageNum='+${page.getPrePage()}}">Up</a>
+                        </td>
+                        <td>
+                            <a th:href="@{'/goods_switch?pageNum='+${page.getNextPage()}}">Down</a>
+                        </td>
+                        <td>当前页</td>
+                        <td>
+                            <input type="text" th:value="${page.getPageNum()}">
+                        </td>
+
+                    </tr>
+                </table>
+
+            </div>
+        </form>
+    </div>
+
+
+</section>
+
+
+<!-- footer section starts  -->
+<section class="credit">华大交易系统</section>
+<!-- footer section ends -->
+
+
+<!-- custom css file link  -->
+<script src="js/script.js"></script>
+
+</body>
+</html>

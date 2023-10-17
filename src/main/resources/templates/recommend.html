@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>contact</title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="../css/style.css">
+<style>
+
+</style>
+</head>
+<body>
+    
+<!-- header section starts  -->
+
+<header class="header">
+
+    <a href="home.html" class="logo"> <i class="fas fa-shopping-basket"></i> Amozon </a>
+
+    <nav class="navbar">
+        <a th:href="${'tohome'}">首页</a>
+        <a th:href="${'torecommend'}">商品推荐</a>
+        <a th:href="${'toclassification'}">商品分类</a>
+        <a href="/find_orders_by_Uid">我的订单</a>
+        <a th:href="${'findGroupGood'}">团购</a>
+   </nav>
+
+    <div class="icons">
+        <div id="menu-btn" class="fas fa-bars"></div>
+        <div id="search-btn" class="fas fa-search"></div>
+        <div id="cart-btn" class="fas fa-shopping-cart"></div>
+        <div id="login-btn"><a href="/path_update_member"><i class="fas fa-user"></i></a></div>
+    </div>
+
+    <form action="/findGoodLikeinfos" class="search-form">
+        <input type="search" placeholder="寻找商品" id="search-box" name="infos">
+        <label for="search-box" class="fas fa-search">
+            <input type="submit">
+        </label>
+    </form>
+
+    <div class="shopping-cart">
+        <div class="box">
+            <i class="fas fa-times"></i>
+            <img src="image/cart-1.jpg" alt="">
+            <div class="content">
+                <h3>organic food</h3>
+                <span class="quantity">${goods.goods_nums}</span>
+                <span class="multiply">x</span>
+                <span class="price">${goods.goods_cash}</span>
+            </div>
+        </div>
+        <h3 class="total"> 总计 : <span>X元</span></h3>
+        <a href="#" class="btn">checkout cart</a>
+    </div>
+    
+</header>
+
+
+<!-- header section ends -->
+
+<div class="heading">
+    <h1>商品推荐</h1>
+    <p> <a href="home.html">home >></a> 商品推荐 </p> 
+</div>
+
+<section class="recommend">
+
+    <h1 class="title"> 猜你 <span>喜欢</span></h1>
+
+    <div class="box-container" >
+
+        <div class="box" th:each="good:${GoodsList}">
+            <div class="image">
+                <img th:src="@{'/download?filepath='+${good.pic}}" alt="加载失败，请重新尝试"
+                height="200" width="200">
+            </div>
+            <div class="content">
+                <div class="icons">
+                     <i class="fas fa-yen-sign"></i><span th:text="${good.cash}"></span> </i>
+                    <a href="#"> <i class="far fa-heart"></i> 收藏商品 </a> <!-- 实心heart,"far"改成"fas" --> 
+                    <a href="#"> <i class="fas fa-shopping-cart"></i> 加入购物车 </a>  <!-- 之后要改成按钮 -->
+                </div>
+                <h3><span th:text="${good.name}"></span></h3>
+                <p>看看它！</p>
+                <a th:href="@{'findGoodById?goods_id='+${good.goods_id}}" class="btn">了解更多</a>
+            </div>
+        </div>
+
+
+
+    </div>
+    <a th:href="@{'/switch?page='+${page.getPageNum()-1}}">上一页</a>
+    <a th:href="@{'/switch?page='+${page.pageNum+1}}">下一页</a>
+    当前页<input type="text" th:value="${page.getPageNum()}">
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- footer section starts  -->
+
+<section class="footer">
+
+    <div class="box-container">
+
+        <div class="box">
+            <h3>购物指南</h3>
+            <a href="home.html"> <i class="fas fa-arrow-right"></i>购物流程</a>
+            <a href="shop.html"> <i class="fas fa-arrow-right"></i>系统介绍</a>
+            <a href="about.html"> <i class="fas fa-arrow-right"></i>常见问题</a>
+            <a href="review.html"> <i class="fas fa-arrow-right"></i>客服联系</a>
+            
+        </div>
+
+        <div class="box">
+            <h3>配送方式</h3>
+            <a href="#"> <i class="fas fa-shopping-bag"></i>上门配送</a>
+            <a href="#"> <i class="fas fa-truck-moving"></i>限时送达</a>
+            <a href="#"> <i class="fas fa-people-carry"></i>自提</a>
+            <a href="#"> <i class="fas fa-book"></i>配送标准</a>
+            <a href="#"> <i class="fas fa-file-invoice-dollar"></i>配送收费</a>
+        </div>
+
+        <div class="box">
+            <h3>支付方式</h3>
+            <a href="#"> <i class="fab fa-weixin"></i>微信 </a>
+            <a href="#"> <i class="fab fa-qq"></i>QQ钱包  </a>
+            <a href="#"> <i class="fas fa-credit-card"></i>银行卡</a>
+            <a href="#"> <i class="fab fa-alipay"></i>支付宝 </a>
+            <a href="#"> <i class="far fa-credit-card"></i>信用卡 </a>
+        </div>
+        
+</div>        
+</section>
+
+<section class="credit">华大交易系统</section>
+
+<!-- footer section ends -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- custom css file link  -->
+<script src="../js/script.js"></script>
+
+</body>
+</html>

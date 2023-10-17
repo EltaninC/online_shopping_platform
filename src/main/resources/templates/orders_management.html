@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>order</title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body {
+            background-color: white;
+        }
+
+        h1 {
+            color: #bac34e;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        table {
+            font-size: 15px;
+            border-collapse: collapse;
+            width: 100%;
+            margin: 50px auto;
+            border: 1px solid green;
+        }
+
+        th, td {
+            text-align: center;
+            padding: 10px;
+            border-bottom: 1px solid green;
+        }
+
+        th {
+            background-color: #bac34e;
+            color: white;
+        }
+
+        button {
+            background-color: #bac34e;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: block;
+            margin: 50px auto;
+            border-radius: 5px;
+            font-size: 20px;
+        }
+
+        a {
+            color: #bac34e;;
+            text-decoration: none;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        a:hover {
+            color: white;
+            background-color: #bac34e;;
+            padding: 8px;
+            border-radius: 5px;
+        } </style>
+</head>
+<body>
+
+<!-- header section starts  -->
+
+<header class="header">
+
+    <a href="" class="logo"> <i class="fas fa-shopping-basket"></i> Amozon </a>
+
+    <nav class="navbar">
+        <a href="/find_goods">商品管理</a>
+        <a href="/find_goods_type">商品分类管理</a>
+        <a href="/find_orders">订单管理</a>
+    </nav>
+
+    <div class="icons">
+        <div id="menu-btn" class="fas fa-bars"></div>
+        <div id="search-btn" class="fas fa-search"></div>
+        <div id="cart-btn" class="fas fa-shopping-cart"></div>
+        <div id="login-btn"><a href="/"><i class="fas fa-user"></i></a></div>
+    </div>
+
+    <form action="" class="search-form">
+        <input type="search" placeholder="寻找商品" id="search-box">
+        <label for="search-box" class="fas fa-search"></label>
+    </form>
+
+    <!--    <div class="shopping-cart">-->
+    <!--        <div class="box">-->
+    <!--            <i class="fas fa-times"></i>-->
+    <!--            <img src="image/cart-1.jpg" alt="">-->
+    <!--            <div class="content">-->
+    <!--                <h3>organic food</h3>-->
+    <!--                <span class="quantity">${goods.goods_nums}</span>-->
+    <!--                <span class="multiply">x</span>-->
+    <!--                <span class="price">${goods.goods_cash}</span>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--        <h3 class="total"> 总计 : <span>X元</span></h3>-->
+    <!--        <a href="#" class="btn">checkout cart</a>-->
+    <!--    </div>-->
+
+</header>
+
+<!-- header section ends -->
+
+<div class="heading">
+    <h1>订单信息</h1>
+
+</div>
+
+<section class="order">
+
+
+    <div class="box">
+        <form action="/find_orders_by_id" method="post">
+            <input type="text" name="order_id" placeholder="按订单id查找..." class="box">
+            <input type="submit" value="搜索" class="btn fas fa-search">
+        </form>
+        <table>
+
+            <tr style="margin-bottom: 100px;">
+                <th>订单ID</th>
+                <th>用户ID</th>
+                <th>下单时间</th>
+                <th>地址</th>
+                <th>姓名</th>
+                <th>联系电话</th>
+                <th>订单额</th>
+                <th>订单状态</th>
+                <th colspan="2">操作</th>
+            </tr>
+
+            <tr style="margin-bottom: 100px;" th:each="order : ${OrdersList}">
+                <td th:text="${order.order_id}"></td>
+                <td th:text="${order.member_id}"></td>
+                <td th:text="${order.order_time}"></td>
+                <td th:text="${order.addr}"></td>
+                <td th:text="${order.getName}"></td>
+                <td th:text="${order.phone}"/>
+                </td>
+                <td th:text="${order.countcash}"></td>
+                <td th:text="${order.status}"></td>
+                <td><a th:href="@{'find_order_detail?order_id='+${order.order_id}}">查看详情</a></td>
+            </tr>
+            <tr style="margin-bottom: 100px;">
+                <td><a th:href="@{'/orders_switch?pageNum='+${page.getPrePage()}}">上一页</a></td>
+                <td><a th:href="@{'/orders_switch?pageNum='+${page.getNextPage()}}">下一页</a></td>
+                <td>当前页<input type="text" th:value="${page.getPageNum()}"></td>
+
+            </tr>
+
+        </table>
+
+
+        <script>
+            <!--
+            添加更多订单行 -->
+            <!--function deleteOrder(orderId) {} -->
+        </script>
+    </div>
+</section>
+
+    <!-- footer section starts  -->
+    <section class="credit">华大交易系统</section>
+    <!-- footer section ends -->
+
+</body>
+</html>

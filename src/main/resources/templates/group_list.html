@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>classification</title>
+
+  <!-- font awesome cdn link  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <!-- custom css file link  -->
+  <link rel="stylesheet" href="/css/style.css">
+
+  <style>
+    body,p,h3{
+      margin:0px;
+    }
+    a{
+      text-decoration: none;/*去掉下划线*/
+    }
+    .product{
+      width:1400px;
+      /* height:400px; */
+      /* background-color: red; */
+      margin:50px auto;
+      border:1px solid #ddd;
+      text-align: center;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
+    .product a{
+      display:block;
+    }
+    .product p.describe{
+      font-size:16px ;
+      font-weight: 400;
+      color:#845f3f;
+    }
+    .product .product-text{
+      /* height:100px; */
+      background-color: #f8f8f8;
+      margin-top:20px;/*上外边距20px*/
+      padding:15px;/*上下左右内边距15px*/
+      width: 240px;
+      margin-left: 40px;
+    }
+
+    .product .product-text .product-mark{
+      font-size: 0px;
+    }
+    .product .product-text .product-mark img{
+      /*margin:0px 2px;*/
+    }
+    .product .product-text h3{
+      font-size: 20px;
+      font-weight:400 ;
+      margin-top:10px;
+      color:#000;
+    }
+
+    .product .product-text p{
+      font-size:20px ;
+      color:#a92112;
+      margin-top:5px;
+    }
+    .huaxian{text-decoration:line-through}
+    .good{
+      width: 350px;
+      height: 500px;
+      border-style:solid;
+      border-width:2px;
+      overflow-x: hidden; /* 隐藏水平滚动栏 */
+      overflow-y: scroll; /* 添加垂直滚动栏 */
+      margin-top: 20px;
+
+
+    }
+    /*table{*/
+    /*  width: 100%;*/
+    /*  border-collapse: collapse;*/
+    /*}*/
+
+    /*table caption{*/
+    /*  font-size: 2em;*/
+    /*  font-weight: bold;*/
+    /*  margin: 1em 0;*/
+    /*}*/
+
+    /*th,td{*/
+    /*  border: 1px solid #999;*/
+    /*  text-align: center;*/
+    /*  padding: 20px 0;*/
+    /*}*/
+
+    /*table thead tr{*/
+    /*  background-color: #008c8c;*/
+    /*  color: #fff;*/
+    /*}*/
+
+    /*table tbody tr:nth-child(odd){*/
+    /*  background-color: #eee;*/
+    /*}*/
+
+    /*table tbody tr:hover{*/
+    /*  background-color: #ccc;*/
+    /*}*/
+
+    /*table tbody tr td:first-child{*/
+    /*  color: #f40;*/
+    /*}*/
+
+    /*table tfoot tr td{*/
+    /*  text-align: right;*/
+    /*  padding-right: 20px;*/
+    /*}*/
+
+  </style>
+</head>
+<body>
+<header class="header">
+
+  <a href="home.html" class="logo"> <i class="fas fa-shopping-basket"></i> Amozon </a>
+
+  <nav class="navbar">
+    <a th:href="${'tohome'}">首页</a>
+    <a href="/torecommend">商品推荐</a>
+    <a href="/toclassification">商品分类</a>
+    <a href="/find_orders_by_Uid">我的订单</a>
+    <a th:href="${'findGroupGood'}">团购</a>
+  </nav>
+
+  <div class="icons">
+    <div id="menu-btn" class="fas fa-bars"></div>
+    <div id="search-btn" class="fas fa-search"></div>
+    <div id="cart-btn" class="fas fa-shopping-cart"></div>
+    <div id="login-btn"><a href="/path_update_member"><i class="fas fa-user"></i></a></div>
+  </div>
+
+  <form action="/findGoodLikeinfos" class="search-form">
+    <input type="search" placeholder="寻找商品" id="search-box" name="infos">
+    <label for="search-box" class="fas fa-search">
+      <input type="submit">
+    </label>
+  </form>
+
+  <div class="shopping-cart">
+    <div class="box">
+      <i class="fas fa-times"></i>
+      <img src="image/cart-1.jpg" alt="">
+      <div class="content">
+        <h3>organic food</h3>
+        <span class="quantity">${goods.goods_nums}</span>
+        <span class="multiply">x</span>
+        <span class="price">${goods.goods_cash}</span>
+      </div>
+    </div>
+    <h3 class="total"> 总计 : <span>X元</span></h3>
+    <a href="#" class="btn">checkout cart</a>
+  </div>
+
+</header>
+
+<section class="home">
+
+  <div class="slides-container">
+
+    <div class="slide active">
+      <div class="content">
+        <span>正品保障</span>
+        <h3>限时优惠</h3>
+        <a href="#" class="btn">浏览商品</a>
+      </div>
+      <div class="image">
+        <img src="image/home-img-1.png" alt="">
+      </div>
+    </div>
+
+    <div class="slide">
+      <div class="content">
+        <span>fresh and organic</span>
+        <h3>upto 50% off</h3>
+        <a href="#" class="btn">shop now</a>
+      </div>
+      <div class="image">
+        <img src="image/home-img-2.png" alt="">
+      </div>
+    </div>
+
+    <div class="slide">
+      <div class="content">
+        <span>fresh and organic</span>
+        <h3>upto 50% off</h3>
+        <a href="#" class="btn">shop now</a>
+      </div>
+      <div class="image">
+        <img src="image/home-img-3.png" alt="">
+      </div>
+    </div>
+
+  </div>
+
+  <div id="next-slide" class="fas fa-angle-right" onclick="next()"></div>
+  <div id="prev-slide" class="fas fa-angle-left" onclick="next()"></div>
+
+</section>
+
+<div class="product" >
+  <!--添加超链接，实现点击后跳转到新页面-->
+    <div th:each="good:${groupList}" style="padding-right:10px" class="good">
+    <img th:src="@{'/download?filepath='+${good.pic}}" alt="电水壶" width="215px">
+    <p class="describe">正品保证，品选优物</p>
+    <div class="product-text">
+      <div class="product-mark">
+        <img src="/image/odds.png" alt="特惠中" height="15">
+        <img src="/image/30day.png" alt="30天保价" height="15">
+        <img src="../image/server.png" alt="售后免邮" height="15">
+      </div>
+      <h3 th:text="${good.name}"></h3>
+      <p class="huaxian" th:text="'原价:'+${good.cash}">￥80</p>
+      <p th:text="'特价:'+${good.cash*0.8}">￥59</p>
+      <a th:href="@{'/findGroupById?goods_id='+${good.goods_id}}">商品详情</a>
+    </div>
+    </div>
+</div>
+
+<!--<table>-->
+<!--  <caption>团购商品列表-->
+<!--  </caption>-->
+<!--  <thead>-->
+<!--  <tr>-->
+<!--    <th>Id</th>-->
+<!--    <th>名称</th>-->
+<!--    <th>团购特价</th>-->
+<!--    <th>信息</th>-->
+<!--    <th>图片</th>-->
+<!--    <th>数量</th>-->
+<!--    <th>详情</th>-->
+<!--  </tr>-->
+<!--  </thead>-->
+<!--  <tbody>-->
+<!--  <tr th:each="good:${groupList}">-->
+<!--    <td th:text="${good.goods_id}" ></td>-->
+<!--    <td th:text="${good.name}"></td>-->
+<!--    <td th:text="${good.cash*0.8}"></td>-->
+<!--      <td th:text="${good.infos}"></td>-->
+<!--    <td th:text="${good.pic}"></td>-->
+<!--    <td th:text="${good.nums}"></td>-->
+<!--    <td><a th:href="@{'/findGroupById?goods_id='+${good.goods_id}}">商品详情</a></td>-->
+<!--    <br>-->
+<!--  </tr>-->
+<!--  </tbody>-->
+<!--  <tfoot>-->
+
+<!--  </tfoot>-->
+<!--</table>-->
+<section class="footer">
+
+  <div class="box-container">
+
+    <div class="box">
+      <h3>购物指南</h3>
+      <a href="home.html"> <i class="fas fa-arrow-right"></i>购物流程</a>
+      <a href="shop.html"> <i class="fas fa-arrow-right"></i>系统介绍</a>
+      <a href="about.html"> <i class="fas fa-arrow-right"></i>常见问题</a>
+      <a href="review.html"> <i class="fas fa-arrow-right"></i>客服联系</a>
+
+    </div>
+
+    <div class="box">
+      <h3>配送方式</h3>
+      <a href="#"> <i class="fas fa-shopping-bag"></i>上门配送</a>
+      <a href="#"> <i class="fas fa-truck-moving"></i>限时送达</a>
+      <a href="#"> <i class="fas fa-people-carry"></i>自提</a>
+      <a href="#"> <i class="fas fa-book"></i>配送标准</a>
+      <a href="#"> <i class="fas fa-file-invoice-dollar"></i>配送收费</a>
+    </div>
+
+    <div class="box">
+      <h3>支付方式</h3>
+      <a href="#"> <i class="fab fa-weixin"></i>微信 </a>
+      <a href="#"> <i class="fab fa-qq"></i>QQ钱包  </a>
+      <a href="#"> <i class="fas fa-credit-card"></i>银行卡</a>
+      <a href="#"> <i class="fab fa-alipay"></i>支付宝 </a>
+      <a href="#"> <i class="far fa-credit-card"></i>信用卡 </a>
+    </div>
+
+  </div>
+</section>
+
+<section class="credit">华大交易系统</section>
+
+<!-- footer section ends -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- custom css file link  -->
+<script src="../js/script.js"></script>
+</body>
+</html>

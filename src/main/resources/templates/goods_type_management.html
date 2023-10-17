@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD</title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="css/style.css">
+    <title>商品类别管理</title>
+    <style>
+        body {
+            background-color: white;
+        }
+
+        h1 {
+            color: #bac34e;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        table {
+            font-size: 20px;
+            border-collapse: collapse;
+            width: 80%;
+            margin: 50px auto;
+            border: 1px solid green;
+        }
+
+        th, td {
+            text-align: center;
+            padding: 10px;
+            border-bottom: 1px solid green;
+        }
+
+        th {
+            background-color: #bac34e;
+            color: white;
+        }
+
+        button {
+            background-color: #bac34e;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: block;
+            margin: 50px auto;
+            border-radius: 5px;
+            font-size: 20px;
+        }
+
+        a {
+            color: #bac34e;;
+            text-decoration: none;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        a:hover {
+            color: white;
+            background-color: #bac34e;;
+            padding: 8px;
+            border-radius: 5px;
+        } </style>
+</head>
+<body>
+<!-- header section starts  -->
+
+<header class="header">
+
+    <a href="" class="logo"> <i class="fas fa-shopping-basket"></i> Amozon </a>
+
+    <nav class="navbar">
+        <a href="/find_goods">商品管理</a>
+        <a href="/find_goods_type">商品分类管理</a>
+        <a href="/find_orders">订单管理</a>
+    </nav>
+
+    <div class="icons">
+        <div id="menu-btn" class="fas fa-bars"></div>
+        <div id="search-btn" class="fas fa-search"></div>
+        <div id="cart-btn" class="fas fa-shopping-cart"></div>
+        <div id="login-btn"><a href="/"><i class="fas fa-user"></i></a></div>
+    </div>
+
+    <form action="" class="search-form">
+        <input type="search" placeholder="寻找商品" id="search-box">
+        <label for="search-box" class="fas fa-search"></label>
+    </form>
+
+    <!--    <div class="shopping-cart">-->
+    <!--        <div class="box">-->
+    <!--            <i class="fas fa-times"></i>-->
+    <!--            <img src="image/cart-1.jpg" alt="">-->
+    <!--            <div class="content">-->
+    <!--                <h3>organic food</h3>-->
+    <!--                <span class="quantity">${goods.goods_nums}</span>-->
+    <!--                <span class="multiply">x</span>-->
+    <!--                <span class="price">${goods.goods_cash}</span>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--        <h3 class="total"> 总计 : <span>X元</span></h3>-->
+    <!--        <a href="#" class="btn">checkout cart</a>-->
+    <!--    </div>-->
+
+</header>
+
+<!-- header section ends -->
+<div class="heading">
+    <h1>商品类别管理</h1>
+</div>
+<button onclick='location.href="/to_goods_types_add"'>新建类型</button>
+<table>
+    <tr>
+        <th>类别编号</th>
+        <th>类别</th>
+        <th>操作</th>
+    </tr>
+    <tr th:each="type : ${GoodsTypeList}">
+        <td th:text="${type.getType_id()}"></td>
+        <td th:text="${type.getType_name()}"></td>
+        <td>
+            <a th:href="@{'/to_goods_types_update?type_id='+${type.getType_id()}+'&type_name='+${type.getType_name()}}" class="btn">修改</a>
+            <a th:href="@{'/delete_goods_types?type_id='+${type.getType_id()}}" class="btn">删除</a>
+        </td>
+    </tr>
+</table>
+
+<!-- footer section starts  -->
+<section class="credit">华大交易系统</section>
+<!-- footer section ends -->
+
+</body>
+</html>

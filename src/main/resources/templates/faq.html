@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="renderer" content="webkit">
+
+    <title>个人信息</title>
+
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/font-awesome.css" rel="stylesheet">
+    <link href="/css/custom.css" rel="stylesheet">
+    <link href="/css/animate.css" rel="stylesheet">
+    <link href="/css/style2.css" rel="stylesheet">
+
+    <style>
+        h4 {
+            text-align: center;
+            font-family: "Microsoft YaHei", sans-serif;
+            color: #333;
+            margin-top: 50px;
+        }
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #333;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+        }
+        input[type="submit"] {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #555;
+        }
+    </style>
+
+</head>
+
+<body>
+<div id="wrapper">
+    <nav class="navbar-default navbar-static-side" role="navigation">
+        <div class="sidebar-collapse">
+            <ul class="nav" id="side-menu">
+                <li class="nav-header">
+
+
+                </li>
+                <li>
+                    <a href=""><i class="fa fa-th-large"></i> <span class="nav-label">主页</span> <span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+
+                        <li><a href="/groupDetail">团购记录</a>
+                        <li><a href="/path_update_member">个人信息</a>
+                    </ul>
+                </li>
+
+
+
+
+
+
+
+                <li>
+                    <a href=""><i class="fa fa-desktop"></i> <span class="nav-label">其他</span></a>
+                    <ul class="nav nav-second-level">
+
+                        <li><a href="/path_to_faq">帮助中心</a>
+                        </li>
+
+                    </ul>
+                </li>
+
+            </ul>
+
+        </div>
+    </nav>
+
+    <div id="page-wrapper" class="gray-bg dashbard-1">
+        <div class="row border-bottom">
+            <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header">
+                    <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href=""><i class="fa fa-bars"></i> </a>
+
+                </div>
+                <ul class="nav navbar-top-links navbar-right">
+
+                    <li class="dropdown">
+
+                        <ul class="dropdown-menu dropdown-messages">
+
+                            <li class="divider"></li>
+
+                            <li class="divider"></li>
+                            <li>
+                                <div class="text-center link-block">
+                                    <a href="mailbox.html">
+                                        <i class="fa fa-envelope"></i>  <strong> 查看所有消息</strong>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+
+                        <ul class="dropdown-menu dropdown-alerts">
+
+
+
+                        </ul>
+                    </li>
+
+
+                    <li>
+                        <a href="/tohome">
+                            <i class="fa fa-sign-out"></i> 退出
+                        </a>
+                    </li>
+                </ul>
+
+            </nav>
+        </div>
+            <div class="row wrapper border-bottom white-bg page-heading">
+                <div class="col-sm-4">
+                    <h2>帮助中心</h2>
+                    <ol class="breadcrumb">
+                        <li>
+                            <a href="index.html">其他</a>
+                        </li>
+                        <li>
+                            <strong>帮助文档</strong>
+                        </li>
+                    </ol>
+                </div>
+                <div class="col-sm-8">
+                    <div class="title-action">
+                        <a href="faq.html" class="btn btn-primary btn-sm">在线提问</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="wrapper wrapper-content animated fadeInUp">
+
+                        <div class="ibox-content m-b-sm border-bottom">
+                            <div class="text-center p-lg">
+                                <h2>如果没有找到您需要的问题</h2>
+                                <span>您可以点击</span>
+                                <button title="Create new cluster" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i>  <span class="bold">在线提问</span>
+                                </button>按钮
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <a data-toggle="collapse" href="faq.html#faq1" class="faq-question">“商城”规则</a>
+                                    <small><strong>商城</strong> <i class="fa fa-clock-o"></i> 今天15:34</small>
+                                </div>
+                                <div class="col-md-3">
+                                    <span class="small font-bold">商城</span>
+                                    <div class="tag-list">
+                                        <span class="tag-item">商城</span>
+                                        <span class="tag-item">理财</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 text-right">
+                                    <span class="small font-bold">投票 </span>
+                                    <br/>42
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div id="faq1" class="panel-collapse collapse faq-answer">
+                                        <p>
+                                            1、商城转入金额1元起步，资金最多不能超过5万。转入时支持使用账户余额、储蓄卡快捷方式（含卡通）；
+                                            <br>2、在商城购物时，可在支付宝收银台勾选使用商城。商城单笔单日限额为5万。当使用商城支付后退款，资金自动回到商城。商城支付记录，可以在电脑端我的商城页面中的交易记录或者支付宝钱包中的账单内查看；
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <a data-toggle="collapse" href="faq.html#faq2" class="faq-question">如何找到商城？</a>
+                                    <small><strong>商城</strong> <i class="fa fa-clock-o"></i> 今天15:34</small>
+                                </div>
+                                <div class="col-md-3">
+                                    <span class="small font-bold">商城</span>
+                                    <div class="tag-list">
+                                        <span class="tag-item">商城</span>
+                                        <span class="tag-item">理财</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 text-right">
+                                    <span class="small font-bold">投票 </span>
+                                    <br/>24
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div id="faq2" class="panel-collapse collapse faq-answer">
+                                        <p>
+                                            充值或者查询商城金额，可以通过以下途径：
+                                            <br>A、电脑端，点击商城PC首页右侧工具栏上的资产按钮 >找到商城入口 ，或点此查询；
+                                            <br>B、手机端，打开商城客户端 >点击右下方“我”>点击“我的资产”。
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <a data-toggle="collapse" href="faq.html#faq3" class="faq-question">商城转出入口在哪里？</a>
+                                    <small><strong>商城</strong> <i class="fa fa-clock-o"></i> 今天15:34</small>
+                                </div>
+                                <div class="col-md-3">
+                                    <span class="small font-bold">商城</span>
+                                    <div class="tag-list">
+                                        <span class="tag-item">商城</span>
+                                        <span class="tag-item">理财</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 text-right">
+                                    <span class="small font-bold">投票 </span>
+                                    <br/>22
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div id="faq3" class="panel-collapse collapse faq-answer">
+                                        <p>
+                                            商城的金额随时可以转出，但转出时商城将收取转出金额1%的违约金，转出时仅能转出到余额宝；
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <a data-toggle="collapse" href="faq.html#faq4" class="faq-question">“商城”支持哪些订单？</a>
+                                    <small><strong>商城</strong> <i class="fa fa-clock-o"></i> 今天15:34</small>
+                                </div>
+                                <div class="col-md-3">
+                                    <span class="small font-bold">商城</span>
+                                    <div class="tag-list">
+                                        <span class="tag-item">商城</span>
+                                        <span class="tag-item">理财</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 text-right">
+                                    <span class="small font-bold">投票 </span>
+                                    <br/>65
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div id="faq4" class="panel-collapse collapse faq-answer">
+                                        <p>
+                                            商城仅支持在商城消费（包含商城超市订单、商城国际订单及电器城订单），未来还可支持在商城指定的线下商家处消费。
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <a data-toggle="collapse" href="faq.html#faq5" class="faq-question">商城支持话费充值吗？</a>
+                                    <small><strong>商城</strong> <i class="fa fa-clock-o"></i> 今天15:34</small>
+                                </div>
+                                <div class="col-md-3">
+                                    <span class="small font-bold">商城</span>
+                                    <div class="tag-list">
+                                        <span class="tag-item">商城</span>
+                                        <span class="tag-item">理财</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 text-right">
+                                    <span class="small font-bold">投票 </span>
+                                    <br/>76
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div id="faq5" class="panel-collapse collapse faq-answer">
+                                        <p>
+                                            很抱歉，商城暂不支持话费充值。
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <a data-toggle="collapse" href="faq.html#faq6" class="faq-question">商城支持旅行商品吗？</a>
+                                    <small><strong>商城</strong> <i class="fa fa-clock-o"></i> 今天15:34</small>
+                                </div>
+                                <div class="col-md-3">
+                                    <span class="small font-bold">商城</span>
+                                    <div class="tag-list">
+                                        <span class="tag-item">商城</span>
+                                        <span class="tag-item">理财</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 text-right">
+                                    <span class="small font-bold">投票 </span>
+                                    <br/>11
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div id="faq6" class="panel-collapse collapse faq-answer">
+                                        <p>
+                                            商城支持淘宝旅行商品，但仅限商城店铺。
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <a data-toggle="collapse" href="faq.html#faq7" class="faq-question"> 商城充值支持哪些方式</a>
+                                    <small><strong>商城</strong> <i class="fa fa-clock-o"></i> 今天15:34</small>
+                                </div>
+                                <div class="col-md-3">
+                                    <span class="small font-bold">商城</span>
+                                    <div class="tag-list">
+                                        <span class="tag-item">商城</span>
+                                        <span class="tag-item">理财</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 text-right">
+                                    <span class="small font-bold">投票 </span>
+                                    <br/>64
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div id="faq7" class="panel-collapse collapse faq-answer">
+                                        <p>
+                                            目前商城仅支持储蓄卡和支付宝账户余额充值。余额宝、信用卡等暂不支持。
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <a data-toggle="collapse" href="faq.html#faq8" class="faq-question">商城可以还信用卡吗？</a>
+                                    <small><strong>商城</strong> <i class="fa fa-clock-o"></i> 今天15:34</small>
+                                </div>
+                                <div class="col-md-3">
+                                    <span class="small font-bold">商城</span>
+                                    <div class="tag-list">
+                                        <span class="tag-item">商城</span>
+                                        <span class="tag-item">理财</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 text-right">
+                                    <span class="small font-bold">投票 </span>
+                                    <br/>10
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div id="faq8" class="panel-collapse collapse faq-answer">
+                                        <p>
+                                            很抱歉，商城中的资金只能用于商城购物消费（包含商城超市订单、商城国际订单及电器城订单），无法支持信用卡还款。
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <a data-toggle="collapse" href="faq.html#faq9" class="faq-question">如何使用商城付款？</a>
+                                    <small><strong>商城</strong> <i class="fa fa-clock-o"></i> 今天15:34</small>
+                                </div>
+                                <div class="col-md-3">
+                                    <span class="small font-bold">商城</span>
+                                    <div class="tag-list">
+                                        <span class="tag-item">商城</span>
+                                        <span class="tag-item">理财</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 text-right">
+                                    <span class="small font-bold">投票 </span>
+                                    <br/>23
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div id="faq9" class="panel-collapse collapse faq-answer">
+                                        <p>
+                                            只要商城资金余额>0, 在收银台（支付宝付款页面）就可以勾选商城进行支付。
+                                            <br>ps：商城仅支持在商城消费（包含商城超市订单、商城国际订单及电器城订单），暂不支持：虚拟类商品（机票、酒店、旅游除外）、保险和理财、商城分期订单、先试后买订单、预授权订单、使用了快捷送运费险的订单、信用卡分期付款订单；组合支付任意一笔中含前述订单也不能使用。
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          
+
+        </div>
+    </div>
+    </div>
+
+    <!-- Mainly scripts -->
+    <script src="jquery-2.1.1.min.js"></script>
+    <script src="bootstrap.min.js"></script>
+    <script src="jquery.metisMenu.js"></script>
+    <script src="jquery.slimscroll.min.js"></script>
+
+    <!-- Custom and plugin javascript -->
+    <script src="hplus.js?v=2.2.0"></script>
+    <script src="pace.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            $('#loading-example-btn').click(function () {
+                btn = $(this);
+                simpleLoad(btn, true)
+
+                // Ajax example
+                //                $.ajax().always(function () {
+                //                    simpleLoad($(this), false)
+                //                });
+
+                simpleLoad(btn, false)
+            });
+        });
+
+        function simpleLoad(btn, state) {
+            if (state) {
+                btn.children().addClass('fa-spin');
+                btn.contents().last().replaceWith(" Loading");
+            } else {
+                setTimeout(function () {
+                    btn.children().removeClass('fa-spin');
+                    btn.contents().last().replaceWith(" Refresh");
+                }, 2000);
+            }
+        }
+    </script>
+
+    <script type="text/javascript" src="http://tajs.qq.com/stats?sId=9051096" charset="UTF-8"></script><!--统计代码，可删除-->
+
+</body>
+
+</html>

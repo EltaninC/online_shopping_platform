@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>团购商品详情</title>
+    <style>
+    body {
+        background-image: url("/image/1.jpg");
+        background-size: cover;
+        background-position: center;
+        background-color: #f2f2f2;
+        font-family: Arial, sans-serif;
+    }
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        text-align: center;
+        padding: 8px;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    img {
+        max-width: 150px;
+        max-height: 150px;
+    } </style>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th>编号</th>
+        <th>名称</th>
+        <th>类型</th>
+        <th>价格</th>
+        <th>信息</th>
+        <th>图片</th>
+        <th>数量</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td th:text="${good.goods_id}"></td>
+        <td th:text="${good.name}"></td>
+        <td th:text="${good.type_id}"></td>
+        <td th:text="${good.pic}"></td>
+        <td th:text="${good.infos}"></td>
+        <td><img th:src="@{'/download?filepath='+${good.pic}}" alt="商品图片"></td>
+        <td th:text="${good.nums}"></td>
+        <td><a th:href="@{'/insertGroup?goods_id='+${good.goods_id}}">参团</a></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
